@@ -19,7 +19,7 @@ RUN apk add --update --no-cache ca-certificates wget bash && \
 
 WORKDIR /opt
 
-COPY scanner .
+COPY ./scripts/scanner .
 
 RUN mv scanner /usr/bin/scanner && \
     chmod +x /usr/bin/scanner
