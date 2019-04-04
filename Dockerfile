@@ -1,7 +1,7 @@
 FROM python:3.7.2-alpine3.9
 
 RUN apk add --update --no-cache build-base git openssl-dev libffi-dev make gcc g++ musl-dev && \
-    pip3 install --upgrade pip setuptools
+    pip3 install --upgrade pip setuptools  --user python
 
 RUN apk --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --update --no-cache add leveldb leveldb-dev && \
     pip3 install mythril
