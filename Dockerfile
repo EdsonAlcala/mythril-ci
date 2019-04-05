@@ -1,10 +1,10 @@
 FROM python:3.7.2-alpine3.9
 
-RUN apk add --update --no-cache build-base git openssl-dev libffi-dev make gcc g++ musl-dev && \
-    pip install -U pip matplotlib setuptools
+RUN apk add --update --no-cache build-base git openssl-dev libffi-dev freetype-dev make gcc g++ musl-dev && \
+    pip install -U pip setuptools
 
 RUN apk --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --update --no-cache add leveldb leveldb-dev && \
-    pip install -U pip setuptools mythril
+    pip install -U mythril
 
 # TODO: Make solidity version a parameter
 # RUN apk add --update --no-cache ca-certificates wget && \
