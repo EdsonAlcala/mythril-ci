@@ -1,7 +1,14 @@
 FROM python:3.7.2-alpine3.9
 
-RUN apk add --update --no-cache build-base git openssl-dev libffi-dev freetype-dev make gcc g++ musl-dev && \
-    pip install -U pip setuptools
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/latest-stable/main" > /etc/apk/repositories
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/latest-stable/community" >> /etc/apk/repositories
+
+RUN apk add --no-cache --update gcc gfortran python python-dev py-pip build-base freetype-dev libpng-dev openblas-dev
+RUN ln -s /usr/include/locale.h /usr/include/xlocale.h
+RUN pip install -U matplotlib
+
+# RUN apk add --update --no-cache build-base git openssl-dev libffi-dev freetype-dev make gcc g++ musl-dev && \
+#     pip install -U pip setuptools wheel
 
 RUN apk --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --update --no-cache add leveldb leveldb-dev && \
     pip install -U mythril
