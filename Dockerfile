@@ -3,7 +3,7 @@ FROM python:3.7.2-alpine3.9
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/latest-stable/main" > /etc/apk/repositories
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/latest-stable/community" >> /etc/apk/repositories
 
-RUN apk add --no-cache --update gcc gfortran python python-dev py-pip build-base freetype-dev libpng-dev openblas-dev
+RUN apk add --no-cache --update-cache gcc gfortran python python-dev py-pip build-base freetype-dev libpng-dev openblas-dev libffi
 RUN ln -s /usr/include/locale.h /usr/include/xlocale.h
 RUN pip install -U matplotlib
 
