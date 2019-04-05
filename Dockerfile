@@ -1,6 +1,6 @@
 FROM python:3.7.2-alpine3.9
 
-RUN apk add --no-cache --update-cache gfortran build-base freetype-dev libpng-dev openblas-dev libffi-dev openssl-dev
+RUN apk add --no-cache --update build-base freetype-dev libpng-dev openblas-dev libffi-dev openssl-dev
 
 RUN ln -s /usr/include/locale.h /usr/include/xlocale.h
 
